@@ -1,0 +1,22 @@
+# Java / Maven build output
+backend/target/
+backend/uploads/
+backend/data/
+
+# Xcode / iOS local output
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# Local editor and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Local environment files
+.env
+.env.*
+
+# Runtime logs
+*.log

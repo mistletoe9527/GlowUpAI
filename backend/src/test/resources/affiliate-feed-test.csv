@@ -1,0 +1,5 @@
+occasion,brand,name,tag,price,reason,buyUrl,image
+Date,Feed Brand,Feed Date Dress,Feed,$88,Comes from configured affiliate feed,https://shop.example/date-dress,https://images.example/date-dress.jpg
+Date,Feed Brand,Feed Satin Top,Feed,$58,Second configured date product,https://shop.example/satin-top,https://images.example/satin-top.jpg
+All,Feed Brand,Feed Universal Heel,Feed,$120,Reusable cross-occasion product,https://shop.example/heel,https://images.example/heel.jpg
+Work,Feed Brand,Feed Work Blazer,Feed,$188,Configured work product,https://shop.example/work-blazer,https://images.example/work-blazer.jpg

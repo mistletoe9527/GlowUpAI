@@ -1,0 +1,65 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/glowup-ai;MODE=MySQL;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+glowup:
+  upload-dir: uploads
+  auth:
+    required: ${GLOWUP_AUTH_REQUIRED:false}
+    firebase:
+      enabled: ${GLOWUP_FIREBASE_AUTH_ENABLED:false}
+      project-id: ${FIREBASE_PROJECT_ID:}
+      public-certs-url: ${FIREBASE_PUBLIC_CERTS_URL:https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com}
+  storage:
+    provider: ${GLOWUP_STORAGE_PROVIDER:local}
+    s3:
+      bucket: ${GLOWUP_STORAGE_S3_BUCKET:}
+      region: ${AWS_REGION:us-east-1}
+      prefix: ${GLOWUP_STORAGE_S3_PREFIX:photos}
+  photo:
+    encryption-key: ${GLOWUP_PHOTO_ENCRYPTION_KEY:}
+  shopping:
+    feed:
+      path: ${AFFILIATE_FEED_PATH:}
+  ai:
+    provider: ${GLOWUP_AI_PROVIDER:mock}
+    openai-api-key: ${OPENAI_API_KEY:}
+    openai-base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1/responses}
+    openai-model: ${OPENAI_MODEL:gpt-4.1-mini}
+    timeout-seconds: ${OPENAI_TIMEOUT_SECONDS:45}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:3306/glowup_ai?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:}
+  h2:
+    console:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
